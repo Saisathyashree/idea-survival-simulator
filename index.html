@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea Survival Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Particle canvas -->
+  <canvas id="bg"></canvas>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines"></div>
+
+  <div class="shell">
+
+    <!-- ── HERO ── -->
+    <header class="hero">
+      <div class="hero-badge">SIMULATION ENGINE v2.0</div>
+      <h1 class="hero-title">
+        <span class="title-idea">IDEA</span>
+        <span class="title-survival">SURVIVAL</span>
+        <span class="title-sim">SIMULATOR</span>
+      </h1>
+      <p class="hero-sub">Feed it your idea. Watch the market decide its fate.</p>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num" id="ideasTested">2,847</span><span class="hstat-label">ideas tested</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num">34%</span><span class="hstat-label">avg survival rate</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num">9</span><span class="hstat-label">market dimensions</span></div>
+      </div>
+    </header>
+
+    <!-- ── INPUT TERMINAL ── -->
+    <div class="terminal-wrap">
+      <div class="terminal-bar">
+        <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+        <span class="t-title">idea_input.exe</span>
+      </div>
+      <div class="terminal-body">
+        <div class="prompt-line">
+          <span class="prompt-sym">$</span>
+          <span class="prompt-label">describe_idea</span>
+          <span class="cursor-blink">_</span>
+        </div>
+        <textarea id="ideaInput"
+          placeholder="e.g. An AI-powered app that matches freelancers with micro-projects based on their mood and energy level..."
+          rows="4"></textarea>
+
+        <div class="selects-row">
+          <div class="select-wrap">
+            <label>INDUSTRY</label>
+            <div class="custom-select">
+              <select id="industrySelect">
+                <option value="tech">⚡ Tech / Software</option>
+                <option value="health">🧬 Health & Wellness</option>
+                <option value="food">🍜 Food & Beverage</option>
+                <option value="finance">💳 Finance / Fintech</option>
+                <option value="education">📡 Education</option>
+                <option value="retail">🛒 Retail / E-commerce</option>
+                <option value="social">🌐 Social / Community</option>
+                <option value="entertainment">🎮 Entertainment / Media</option>
+                <option value="sustainability">🌱 Sustainability</option>
+                <option value="other">🔮 Other</option>
+              </select>
+              <span class="select-arrow">▾</span>
+            </div>
+          </div>
+          <div class="select-wrap">
+            <label>STAGE</label>
+            <div class="custom-select">
+              <select id="stageSelect">
+                <option value="concept">💭 Just an idea</option>
+                <option value="validated">🔬 Some validation</option>
+                <option value="mvp">🛠 Have an MVP</option>
+                <option value="launched">🚀 Already launched</option>
+              </select>
+              <span class="select-arrow">▾</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="analyzeBtn">
+          <span class="btn-icon">▶</span>
+          <span class="btn-text">RUN SURVIVAL SIMULATION</span>
+          <span class="btn-glow"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RESULTS ── -->
+    <div id="results" class="results hidden"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
